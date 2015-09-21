@@ -26,6 +26,6 @@ app.use(loginMiddleware);
 require('./controller');
 
 // where to see my library
-app.listen(process.env.PORT || 3000, function() {
-  console.log('Server running on port ' + process.env.PORT || 3000);
+app.listen(3000, function () {
+  console.log("Go to localhost:3000/");
 });

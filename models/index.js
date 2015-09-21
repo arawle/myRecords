@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoose.connect();
+mongoose.connect("mongodb://localhost/records");
 
 //require other models
 module.exports.User = require('./user');
