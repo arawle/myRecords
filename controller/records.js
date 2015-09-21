@@ -36,7 +36,11 @@ app.post('/records', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      db.User.findById(req.session.id, function(err, ))
+      db.User.findById(req.session.id, function(err, data) {
+        // record.push(data);
+        record.save();
+        res.redirect('/records');
+      })
     }
   });
 });
