@@ -6,22 +6,22 @@ var Physical = require('./physical');
 var Art = require('./albumArt');
 
 var recordSchema = new mongoose.Schema({
-  physical: [{
+  physical: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Physical',
-  },],
-  artist: [{
+  },
+  artist: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Artist',
-  },],
-  music: [{
+  },
+  music: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Music',
-  },],
-  art: [{
+  },
+  art: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Art',
-  },],
+  },
   genre: String,
   use: String,
   lastPrice: Number,
