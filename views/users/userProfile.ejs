@@ -1,4 +1,12 @@
 <% include ../partials/header %>
 
+<h2>Hello <%= email %> </h2>
+
+View your records below: <br/>
+Post List: <br/>
+<% for (var i = 0; i < records.length; i++) { %>
+  <a href="/records/<%=records[i]._id%>"><%=[i+1]%>. <%= records[i].record %></a>
+  <br/>
+<% } %>
 
 <% include ../partials/footer %>

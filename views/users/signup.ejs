@@ -1,4 +1,23 @@
 <% include ../partials/header %>
 
+  <h2>Signup for Records</h2>
+
+  <form method='POST' action='signup'>
+    Email:
+    <input type='text' name='user[email]' autofocus/>
+    <br/>
+    Password:
+    <input type='password' name='user[password]'/>
+    <br/>
+    Image:
+    <input type='text' name='user.image'/>
+    <br/>
+    Location:
+    <input type='text' name='user.location'/>
+    <br/>
+    <br/>
+    <input type='submit' value='Create Account'/>
+    <br/>
+  </form>
 
 <% include ../partials/footer %>
