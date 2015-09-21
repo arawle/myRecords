@@ -25,7 +25,7 @@ var recordSchema = new mongoose.Schema({
   genre: String,
   use: String,
   lastPrice: Number,
-  Notes: String,
+  notes: String,
   recordOfWeek: Boolean,
   recordOfMonth: Boolean,
 });

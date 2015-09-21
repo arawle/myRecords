@@ -1,4 +1,133 @@
 <% include ../partials/header %>
-
-New Record
+<h2>Add New Record</h2>
+  <form class="" action="/records" method="post">
+    <h3>Physical Details</h3>
+    Physical Condition:
+    <input type='text' name='record.physical.condition'> </input>
+    <br/>
+    Quantity:
+    <input type='text' name='record.physical.quantity'></input>
+    <br/>
+    Diameter in Inches:
+    <input type='text' name='record.physical.size'></input>
+    <br/>
+    Year Pressed:
+    <input type='text' name='record.physical.yearPressed'></input>
+    <br/>
+    Die Cut Shape:
+    <input type='text' name='record.physical.dieCutShape'></input>
+    <br/>
+    Audiofile Features:
+    <input type='text' name='record.physical.audiofileFeatures'></input>
+    <br/>
+    RPM Speed:
+    <input type='text' name='record.physical.rpmSpeed'></input>
+    <br/>
+    Hole Configuration:
+    <input type='text' name='record.physical.holeConfiguration'></input>
+    <br/>
+    Production Run at Release:
+    <input type='text' name='record.physical.productionRun'></input>
+    <br/>
+    Where Pressed:
+    <input type='text' name='record.physical.wherePressed'></input>
+    <br/>
+    Where Released:
+    <input type='text' name='record.physical.whereReleased'></input>
+    <br/>
+    <br/>
+    <h3>Artist Details</h3>
+    Lead Artist(s):
+    <input type='text' name='record.artist.leadArtists'></input>
+    <br/>
+    Band Member(s):
+    <input type='text' name='record.artist.bandMembers'></input>
+    <br/>
+    Studio Musician(s):
+    <input type='text' name='record.artist.studioMusicians'></input>
+    <br/>
+    Songwriter(s):
+    <input type='text' name='record.artist.songwriters'></input>
+    <br/>
+    Movie Cast:
+    <input type='text' name='record.artist.movieCast'></input>
+    <br/>
+    <br/>
+    <h3>Music Details</h3>
+    Year Recorded:
+    <input type='text' name='record.music.yearRecorded'></input>
+    <br/>
+    Language:
+    <input type='text' name='record.music.language'></input>
+    <br/>
+    Copyright Holder:
+    <input type='text' name='record.music.copyrightHolder'></input>
+    <br/>
+    Year of Copyright:
+    <input type='text' name='record.music.yearOfCopyright'></input>
+    <br/>
+    Studio:
+    <input type='text' name='record.music.studio'></input>
+    <br/>
+    Producer:
+    <input type='text' name='record.music.producer'></input>
+    <br/>
+    <br/>
+    <h3>Album Art</h3>
+    Color or Black and White:
+    <input type='text' name='record.art.colorBW'></input>
+    <br/>
+    Art Theme:
+    <input type='text' name='record.art.artTheme'></input>
+    <br/>
+    Artist(s):
+    <input type='text' name='record.art.artists'></input>
+    <br/>
+    Size:
+    <input type='text' name='record.art.size'></input>
+    <br/>
+    Die Cut:
+    <input type='text' name='record.art.dieCut'></input>
+    <br/>
+    Shape:
+    <input type='text' name='record.art.shape'></input>
+    <br/>
+    Objects Inside:
+    <input type='text' name='record.art.objectsInside'></input>
+    <br/>
+    Mistakes:
+    <input type='text' name='record.art.mistakes'></input>
+    <br/>
+    Color Theme:
+    <input type='text' name='record.art.colorTheme'></input>
+    <br/>
+    Cover Condition:
+    <input type='text' name='record.art.coverCondition'></input>
+    <br/>
+    <br/>
+    <h3>Other Details</h3>
+    Genre:
+    <input type='text' name='record[genre]'></input>
+    <br/>
+    Use:
+    <input type='text' name='record[use]'></input>
+    <br/>
+    Last Price:
+    <input type='text' name='record[lastPrice]'></input>
+    <br/>
+    Notes:
+    <textarea type='text' name='record[notes]'></textarea>
+    <br/>
+    <br/>
+    <button type="sumbit" name="button">Add</button>
+  </form>
 <% include ../partials/footer %>
+
+
+
+
+
+
+
+
+
