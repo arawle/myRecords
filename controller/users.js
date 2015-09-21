@@ -19,11 +19,14 @@ app.get('/users/:id', function(req, res) {
 app.post('/signup', function(req, res) {
   var newUser = req.body.user;
   db.User.create(newUser, function(err, user) {
+    console.log('here')
     if (user) {
+      console.log('user', user)
       req.login(user);
-      res.redirect('/');
+      res.redirect('/records');
     } else {
-      res.redirect('/signup');
+      console.log('else', user)
+      res.redirect('/records');
     }
   });
 });

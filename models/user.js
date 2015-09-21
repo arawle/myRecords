@@ -27,14 +27,16 @@ userSchema.pre('save', function(next) {
   }
   return bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
     if (err) {
+      console.log(err);
       return next(err);
     }
     return bcrypt.hash(user.password, salt, function(err, hash) {
       if (err) {
+        console.log(err);
         return next(err);
       }
       user.password = hash;
-      return next;
+      return next();
     });
   });
 });
@@ -52,7 +54,7 @@ userSchema.statics.authenticate = function(formData, callback) {
   });
 };
 
-userSchema.methods,checkPassword = function(password, callback) {
+userSchema.methods.checkPassword = function(password, callback) {
   var user = this;
   bcrypt.compare(password, user.password, function(err, isMatch) {
     if (isMatch) {
