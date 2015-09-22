@@ -1,3 +1,8 @@
+
+<% if (record.available === true && record.forSale === true) { %>
+ <button class='buyButton'>Buy</button>
+<% } %>
+
 <h4>Physical Details</h4>
 Physical Condition:
 <input type='text' name='physical[condition]' value='<%=record.physical.condition%>'/>
@@ -119,8 +124,8 @@ Last Price:
 <input type='text' name='record[lastPrice]' value='<%=record.lastPrice%>' />
 <br/>
 Available:
-<input type='radio' name='record[available]' value='true' checked/>
-<input type='radio' name='record[available]' value='false' />
+Yes: <input type='radio' name='record[available]' value='true' checked/>
+No: <input type='radio' name='record[available]' value='false' />
 <br/>
 For Sale:
 Yes:  <input type='radio' name='record[forSale]' value='true' checked />
