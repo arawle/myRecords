@@ -27,39 +27,62 @@ app.get('/records/:id', function(req, res) {
         console.log(err);
         res.render('404');
       }
-      res.render('records/record', {data: data});
+      res.render('records/record', {user: data});
     }
   });
 });
 
 //work on this one
 app.post('/records', function(req, res) {
+
   db.Record.create(req.body.record, function(err, record) {
     if (err) {
       console.log(err);
     } else {
-      db.User.findById(req.session.id, function(err, data) {
+      db.User.findById(req.session.id, function(err, user) {
         //add record id to User records and save
-        data.records.push(record._id);
-        data.save();
-        // res.redirect('/records');
-      })
-    }
-  });
-  db.Art.create(req.body.art, function(err, art) {
-    if (err) {
-      console.log(err);
-    } else {
-      db.Record.findById(req.body, function(err, data) {
-        console.log(req.body);
-        console.log(data);
-        data.art.push(art);
-        data.save();
-        res.redirect('/records')
-      })
-    }
-  });
+        user.records.push(record._id);
+        user.save();
+      });
 
+      db.Art.create(req.body.art, function(err, art) {
+        if (err) {
+          console.log(err);
+        } else {
+          record.art = art;
+          record.save();
+        }
+      });
+
+      db.Artist.create(req.body.artist, function(err, artist) {
+        if (err) {
+          console.log(err);
+        } else {
+          record.artist = artist;
+          record.save();
+        }
+      });
+
+      db.Physical.create(req.body.physical, function(err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          record.physical = physical;
+          record.save();
+        }
+      });
+
+      db.Music.create(req.body.music, function(err, data) {
+        if (err) {
+          console.log(err);
+        } else {
+          record.music = music;
+          record.save();
+          res.redirect('/records/' + record._id);
+        }
+      });
+    }
+  });
 });
 
 app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {

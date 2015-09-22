@@ -1,21 +1,6 @@
 <% include ../partials/header %>
 All Records
 
-<% for (var i = 0; i < user.records.length; i++) { %>
-  <div class = 'records'>
-  <img src= <%= user.records[i].art.photo %> alt = 'Photo of Album Cover' />
-  <b> <%= user.records[i].music.tracks %> </b>
-  <br/>
-  <b>Artists: </b>
-  <%= user.records[i].artist.leadArtists %>
-  <br/>
-  <b>Release Date:</b>
-  <%= user.records[i].physical.yearPressed %>
-  <br/>
-  <b>Last Price:</b>
-  <%= user.records[i].lastPrice %>
-  <br/>
-  <br/>
-<% } %>
+
 
 <% include ../partials/footer %>
