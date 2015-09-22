@@ -5,7 +5,7 @@ var routeHelpers = {
     if (req.session.id !== null && req.session.id !== undefined) {
       return next();
     } else {
-      res.redirect('/login');
+      res.redirect('/signup');
     }
   },
 

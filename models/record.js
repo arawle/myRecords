@@ -29,6 +29,7 @@ var recordSchema = new mongoose.Schema({
   recordOfWeek: Boolean,
   recordOfMonth: Boolean,
   owner: String,
+  available: Boolean,
 });
 
 recordSchema.pre('remove', function(callback) {

@@ -1,0 +1,16 @@
+<% if (locals.user === null) { %>
+  <div class="login col l3">
+    <h5> Login Here </h5>
+    <form method='POST' action='/login'>
+      Email:
+      <input type='text' name='user[email]' autofocus/>
+      <br/>
+      Password:
+      <input type='password' name='user[password]'/>
+      <br/>
+      <br/>
+      <input type='submit' value='Sign In'/>
+      <br/>
+    </form>
+  </div>
+<% } %>

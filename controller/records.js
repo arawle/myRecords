@@ -37,6 +37,7 @@ app.post('/records', function(req, res) {
         //add record id to User records and save
         user.records.push(record._id);
         record.owner = (req.session.id);
+        record.available = true;
         record.save();
         user.save();
       });
