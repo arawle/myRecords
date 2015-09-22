@@ -3,13 +3,13 @@
   <form class="" action="/records" method="post">
     <h3>Physical Details</h3>
     Physical Condition:
-    <input type='text' name='record.physical.condition'> </input>
+    <input type='text' name='physical[condition]'> </input>
     <br/>
     Quantity:
-    <input type='text' name='record.physical.quantity'></input>
+    <input type='text' name='physical[quantity]'></input>
     <br/>
     Diameter in Inches:
-    <input type='text' name='record.physical.size'></input>
+    <input type='text' name='physical[size]'></input>
     <br/>
     Year Pressed:
     <input type='text' name='record.physical.yearPressed'></input>
@@ -54,8 +54,11 @@
     <br/>
     <br/>
     <h3>Music Details</h3>
+    Tracks:
+    <input type='text' name='music[tracks]'></input>
+    <br/>
     Year Recorded:
-    <input type='text' name='record.music.yearRecorded'></input>
+    <input type='text' name='music.yearRecorded'></input>
     <br/>
     Language:
     <input type='text' name='record.music.language'></input>
@@ -74,6 +77,9 @@
     <br/>
     <br/>
     <h3>Album Art</h3>
+    Album Cover Photo:
+    <input type='text' name='art[photo]'></input>
+    <br/>
     Color or Black and White:
     <input type='text' name='record.art.colorBW'></input>
     <br/>

@@ -1,4 +1,5 @@
 var db = require('../models');
+var mongoose = require('mongoose');
 var routeMiddleware = require('../middleware/routeHelper');
 
 app.get('/records', function(req, res) {
@@ -16,16 +17,17 @@ app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
 });
 
 app.get('/records/:id', function(req, res) {
-  db.Record.findById(req.params.id).populate('physical artist music art').exec(function(err, record) {
+  db.Record.findById(req.params.id).populate('physical artist music art').exec(function(err, data) {
     if (err) {
       console.log(err);
       res.render('404');
     } else {
+      db.Art.find({})
       if (err) {
         console.log(err);
         res.render('404');
       }
-      res.render('records/record', {record: record});
+      res.render('records/record', {data: data});
     }
   });
 });
@@ -37,8 +39,13 @@ app.post('/records', function(req, res) {
       console.log(err);
     } else {
       db.User.findById(req.session.id, function(err, data) {
-        // record.push(data);
-        record.save();
+        //add record id to User records and save
+        data.records.push(record._id);
+        data.save();
+
+        record.physical.push()
+        record.save()
+        //console.log(data.records.populate())
         res.redirect('/records');
       })
     }

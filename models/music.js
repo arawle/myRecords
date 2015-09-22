@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var musicSchema = new mongoose.Schema({
+  tracks: String,
   yearRecorded: Number,
   language: String,
   copyrightHolder: String,

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var artSchema = new mongoose.Schema({
+  photo: String,
   colorBW: Boolean,
   artTheme: String,
   artists: Array,
