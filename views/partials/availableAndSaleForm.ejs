@@ -1,0 +1,12 @@
+<br/><br/>
+<form class="" action="/records/<%=record._id%>?_method=put" method="post">
+  Available:
+  Yes:  <input type='radio' name='record[available]' value='true' checked />
+  No: <input type='radio' name='record[available]' value='false' />
+  <br/>
+  For Sale:
+  Yes:  <input type='radio' name='record[forSale]' value='true' checked />
+  No: <input type='radio' name='record[forSale]' value='false' />
+  <br/>
+  <button type="sumbit" name="button">Change Status</button>
+</form>

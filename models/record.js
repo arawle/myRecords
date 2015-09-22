@@ -30,6 +30,7 @@ var recordSchema = new mongoose.Schema({
   recordOfMonth: Boolean,
   owner: String,
   available: Boolean,
+  forSale: Boolean,
 });
 
 recordSchema.pre('remove', function(callback) {
