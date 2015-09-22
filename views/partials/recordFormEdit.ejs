@@ -143,8 +143,10 @@
     <br/>
   <% } %>
   <br/>
+  <div class='input-field'>
   Notes:
-  <textarea type='text' name='record[notes]' value='<%=record.notes%>'></textarea>
+    <textarea id="textareaNotes" class="materialize-textarea" name='record[notes]'><%=record.notes%></textarea>
+  </div>
   <br/>
   <br/>
   <button type="sumbit" name="button">Submit Changes</button>
