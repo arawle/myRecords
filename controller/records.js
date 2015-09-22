@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var routeMiddleware = require('../middleware/routeHelper');
 
 app.get('/records', function(req, res) {
-  db.Record.find({}).populate('physical artist music art').exec(function(err, record) {
+  db.Record.find({}).populate('physical artist music art').exec(function(err, data) {
     if (err) {
       console.log(err);
     } else {
-      res.render('records/home', {record: record});
+      res.render('records/home', {record: data});
     }
   });
 });
@@ -84,6 +84,9 @@ app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
     if (err) {
       console.log(err);
     } else {
+      //does not render new set of data with change in value displayed, but does
+      //update in database if adding notes. On a resubmit, the notes field is blank,
+      //so it removes all the notes
       res.redirect('/records/' + data._id);
     }
   });

@@ -1,8 +1,8 @@
 <% include ../partials/header %>
 
-
-
 <h2>Edit Record</h2>
+  <img src='<%=record.art.photo%>' alt='Photo of Record' />
+
   <form class="" action="/records/<%=record._id%>?_method=put" method="post">
     <h4>Physical Details</h4>
     Physical Condition:
