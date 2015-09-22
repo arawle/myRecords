@@ -28,7 +28,7 @@ var recordSchema = new mongoose.Schema({
   notes: String,
   recordOfWeek: Boolean,
   recordOfMonth: Boolean,
-
+  owner: String,
 });
 
 recordSchema.pre('remove', function(callback) {

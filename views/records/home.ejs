@@ -13,7 +13,10 @@
   <button class='details' data-id='<%=record[i]._id%>'>More Info</button>
   <button>Buy</button>
   <br/>
-
+    <% if(record[i].owner === locals.user) { %>
+      <button class='edit'>Edit</button>
+      <button class='list'>List It</button>
+    <% } %>
   </div>
 <% } %>
 
