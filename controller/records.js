@@ -22,12 +22,8 @@ app.get('/records/:id', function(req, res) {
       console.log(err);
       res.render('404');
     } else {
-      db.Art.find({})
-      if (err) {
-        console.log(err);
-        res.render('404');
-      }
-      res.render('records/record', {user: data});
+      console.log(data)
+      res.render('records/record', {record: data});
     }
   });
 });
@@ -63,7 +59,7 @@ app.post('/records', function(req, res) {
         }
       });
 
-      db.Physical.create(req.body.physical, function(err, data) {
+      db.Physical.create(req.body.physical, function(err, physical) {
         if (err) {
           console.log(err);
         } else {
@@ -72,15 +68,15 @@ app.post('/records', function(req, res) {
         }
       });
 
-      db.Music.create(req.body.music, function(err, data) {
+      db.Music.create(req.body.music, function(err, music) {
         if (err) {
           console.log(err);
         } else {
           record.music = music;
           record.save();
-          res.redirect('/records/' + record._id);
         }
       });
+      res.redirect('/records/' + record._id);
     }
   });
 });
