@@ -1,6 +1,6 @@
 //home
 app.get('/', function(req, res) {
-  res.redirect('/signup');
+  res.render('homePage')
 });
 
 //require other controllers

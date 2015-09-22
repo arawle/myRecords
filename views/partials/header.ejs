@@ -13,3 +13,25 @@
   </head>
   <body>
     <header>
+      <div class="container">
+        <div class="row">
+          <h3 class='col l6'>Records</h3>
+            <% if (locals.user !== null) { %>
+              <nav class='col l6'>
+              <a class='col l3' href="/">Home</a>
+              <a class='col l3' href="/records/new">Add Record</a>
+              <a class='col l3' href="/users/<%=locals.user%>">My Account</a>
+              <a class='col l3' href="/logout">Logout</a>
+            <% }  else {%>
+              <nav class='col s3 offset-s3'>
+              <a class='col l6' href="/">Home</a>
+              <a class='col l6' href="/signup">Signup</a>
+            <% } %>
+          </nav>
+        </div>
+        <hr /> <br />
+      </div>
+    </header>
+    <div class="container">
+      <div class="row">
+        <div class="col l9">

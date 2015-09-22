@@ -12,7 +12,7 @@ app.get('/logout', function(req, res) {
 
 app.get('/users/:id', function(req, res) {
   db.User.findById(req.params.id).populate('records').exec(function(err, user) {
-    res.render('users/userProfile', user);
+    res.render('users/userProfile', {user: user});
   });
 });
 
@@ -35,6 +35,7 @@ app.post('/login', function(req, res) {
   db.User.authenticate(req.body.user, function(err, user) {
     if (!err && user !== null) {
       req.login(user);
+      res.render('homePage')
     } else {
       res.redirect('/signup');
     }
