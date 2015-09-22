@@ -42,14 +42,24 @@ app.post('/records', function(req, res) {
         //add record id to User records and save
         data.records.push(record._id);
         data.save();
-
-        record.physical.push()
-        record.save()
-        //console.log(data.records.populate())
-        res.redirect('/records');
+        // res.redirect('/records');
       })
     }
   });
+  db.Art.create(req.body.art, function(err, art) {
+    if (err) {
+      console.log(err);
+    } else {
+      db.Record.findById(req.body, function(err, data) {
+        console.log(req.body);
+        console.log(data);
+        data.art.push(art);
+        data.save();
+        res.redirect('/records')
+      })
+    }
+  });
+
 });
 
 app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
