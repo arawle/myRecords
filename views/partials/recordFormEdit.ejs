@@ -119,13 +119,29 @@
   Last Price:
   <input type='text' name='record[lastPrice]' value='<%=record.lastPrice%>' />
   <br/>
-  Available:
-  Yes: <input type='radio' name='record[available]' value='true' checked/>
-  No: <input type='radio' name='record[available]' value='false' />
-  <br/>
-  For Sale:
-  Yes:  <input type='radio' name='record[forSale]' value='true' checked />
-  No: <input type='radio' name='record[forSale]' value='false' />
+  <% if ( record.available  === true) { %>
+    Available:
+    <input type='radio' name='record[available]' value='true' id='availableTrue' checked /><label for='availableTrue'>Yes</label>
+    <input type='radio' name='record[available]' value='false' id='availableFalse'/><label for='availableFalse'>No</label>
+    <br/>
+  <% } else { %>
+    Available:
+    <input type='radio' name='record[available]' value='true' id='availableTrue' /><label for='availableTrue'>Yes</label>
+    <input type='radio' name='record[available]' value='false' id='availableFalse' checked/><label for='availableFalse'>No</label>
+    <br/>
+  <% } %>
+
+  <% if (record.forSale === true) { %>
+    For Sale:
+    <input type='radio' name='record[forSale]' value='true' id='forSaleTrue' checked/><label for='forSaleTrue'>Yes</label>
+    <input type='radio' name='record[forSale]' value='false' id='forSaleFalse'/><label for='forSaleFalse'>No</label>
+    <br/>
+  <% } else { %>
+    For Sale:
+    <input type='radio' name='record[forSale]' value='true' id='forSaleTrue' /><label for='forSaleTrue'>Yes</label>
+    <input type='radio' name='record[forSale]' value='false' id='forSaleFalse' checked/><label for='forSaleFalse'>No</label>
+    <br/>
+  <% } %>
   <br/>
   Notes:
   <textarea type='text' name='record[notes]' value='<%=record.notes%>'></textarea>
