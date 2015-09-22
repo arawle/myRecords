@@ -22,13 +22,11 @@ app.get('/records/:id', function(req, res) {
       console.log(err);
       res.render('404');
     } else {
-      console.log(data)
       res.render('records/record', {record: data});
     }
   });
 });
 
-//work on this one
 app.post('/records', function(req, res) {
 
   db.Record.create(req.body.record, function(err, record) {
