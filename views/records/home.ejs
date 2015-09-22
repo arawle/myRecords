@@ -1,15 +1,16 @@
 <% include ../partials/header %>
-All Records
+
+<h3>All Records</h3>
 
 <% for (var i = 0; i < record.length; i++){ %>
   <div>
   <%=record.tracks%>
   <br/>
-  <img src='<%=record[i].photo%>' alt='Record Photo' />
+  <img src='<%=record[i].photo%>' alt='Individual Record Photo' />
   <br/>
   Last Price: <%=record.lastPrice%>
   <br/>
-  <button>More Info</button>
+  <button class='details' data-id='<%=record[i]._id%>'>More Info</button>
   <button>Buy</button>
   <br/>
 
