@@ -16,13 +16,6 @@ All Records
   <%= user.records[i].lastPrice %>
   <br/>
   <br/>
-
-  if
-  <button class = 'editAnimal' data-url = "/zoos/<%= zoo.id %>/animals/<%=zoo.animals[i].id%>/edit" >Edit Animal</button>
-  <br/>
-  <button class = 'deleteAnimal' data-url = '/zoos/<%=zoo.id%>/animals/<%=zoo.animals[i].id%>'>Delete Animal</button>
-  </div>
-  <div class='seperateFence'></div>
 <% } %>
 
 <% include ../partials/footer %>
