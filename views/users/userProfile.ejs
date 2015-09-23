@@ -1,12 +1,23 @@
 <% include ../partials/header %>
 
-<h2>Hello <%= user.email %> </h2>
+  <h2>Hello <%= user.email %> </h2>
 
-View your records below: <br/>
-Records: <br/>
-<% for (var i = 0; i < user.records.length; i++) { %>
-  <a href="/records/<%=user.records[i]._id%>"><%=[i+1]%>. <%= user.records[i].genre %></a>
-  <br/>
-<% } %>
+  Your Records: <br/>
+  <% for (var i = 0; i < user.records.length; i++) { %>
+        <div class="col s5 m5">
+          <div class="card small">
+            <div class="card-image">
+              <img src="<%= user.records[i].art.photo %>" alt='Photo of Album Cover' />
+              <span class="card-title"><%= user.records[i].music.tracks %></span>
+            </div>
+            <div class="card-content">
+              <p><%=user.records%></p>
+            </div>
+            <div class="card-action">
+              <a href="/records/<%=user.records[i]._id%>">More Info</a>
+            </div>
+          </div>
+        </div>
+  <% } %>
 
 <% include ../partials/footer %>
