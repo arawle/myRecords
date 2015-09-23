@@ -82,11 +82,33 @@ app.post('/records', function(req, res) {
 });
 
 app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
-  db.Record.findByIdAndUpdate(req.params.id, req.body, function(err, data) {
+  console.log('one');
+  db.Record.findByIdAndUpdate(req.params.id).populate('physical artist music art').exec(function(err, data) {
+    console.log('two');
     if (err) {
+      console.log('three');
       console.log(err);
     } else {
+      console.log('four');
+      data.art = req.body.art;
+      data.music = req.body.music;
+      data.physical = req.body.physical;
+      data.artist = req.body.artist;
+      data.art.save();
+      data.music.save();
+      data.physical.save();
+      data.artist.save();
 
+      data.genre = req.body.genre;
+      data.use = req.body.use;
+      data.lastPrice = req.body.lastPrice;
+      data.available = req.body.available;
+      data.forSale = req.body.forSale;
+      data.notes = req.body.notes;
+      data.save();
+
+      console.log('five');
+      console.log(data)
       res.redirect('/records/' + data._id);
     }
   });

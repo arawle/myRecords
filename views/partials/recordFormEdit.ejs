@@ -2,8 +2,7 @@
   <h4>Physical Details</h4>
   <div class='input-field'>
   Physical Condition:
-  <input id="physicalCondition" name='record.physical.condition' type="text" >
-    <label for="physicalCondition"><%=record.physical.condition%></label>
+  <input id="physicalCondition" name='physical[condition]' type="text" value='<%=record.physical.condition%>' />
   </div>
   <br/>
   Quantity:
@@ -114,41 +113,41 @@
   <br/>
   <h4>Other Details</h4>
   Genre:
-  <input type='text' name='record[genre]' value='<%=record.genre%>' />
+  <input type='text' name='genre' value='<%=record.genre%>' />
   <br/>
   Use:
-  <input type='text' name='record[use]' value='<%=record.use%>' />
+  <input type='text' name='use' value='<%=record.use%>' />
   <br/>
   Last Price:
-  <input type='text' name='record[lastPrice]' value='<%=record.lastPrice%>' />
+  <input type='text' name='lastPrice' value='<%=record.lastPrice%>' />
   <br/>
   <% if ( record.available  === true) { %>
     Available:
-    <input type='radio' name='record[available]' value='true' id='availableTrue' checked /><label for='availableTrue'>Yes</label>
-    <input type='radio' name='record[available]' value='false' id='availableFalse'/><label for='availableFalse'>No</label>
+    <input type='radio' name='available' value='true' id='availableTrue' checked /><label for='availableTrue'>Yes</label>
+    <input type='radio' name='available' value='false' id='availableFalse'/><label for='availableFalse'>No</label>
     <br/>
   <% } else { %>
     Available:
-    <input type='radio' name='record[available]' value='true' id='availableTrue' /><label for='availableTrue'>Yes</label>
-    <input type='radio' name='record[available]' value='false' id='availableFalse' checked/><label for='availableFalse'>No</label>
+    <input type='radio' name='available' value='true' id='availableTrue' /><label for='availableTrue'>Yes</label>
+    <input type='radio' name='available' value='false' id='availableFalse' checked/><label for='availableFalse'>No</label>
     <br/>
   <% } %>
 
   <% if (record.forSale === true) { %>
     For Sale:
-    <input type='radio' name='record[forSale]' value='true' id='forSaleTrue' checked/><label for='forSaleTrue'>Yes</label>
-    <input type='radio' name='record[forSale]' value='false' id='forSaleFalse'/><label for='forSaleFalse'>No</label>
+    <input type='radio' name='forSale' value='true' id='forSaleTrue' checked/><label for='forSaleTrue'>Yes</label>
+    <input type='radio' name='forSale' value='false' id='forSaleFalse'/><label for='forSaleFalse'>No</label>
     <br/>
   <% } else { %>
     For Sale:
-    <input type='radio' name='record[forSale]' value='true' id='forSaleTrue' /><label for='forSaleTrue'>Yes</label>
-    <input type='radio' name='record[forSale]' value='false' id='forSaleFalse' checked/><label for='forSaleFalse'>No</label>
+    <input type='radio' name='forSale' value='true' id='forSaleTrue' /><label for='forSaleTrue'>Yes</label>
+    <input type='radio' name='forSale' value='false' id='forSaleFalse' checked/><label for='forSaleFalse'>No</label>
     <br/>
   <% } %>
   <br/>
   <div class='input-field'>
   Notes:
-    <textarea id="textareaNotes" class="materialize-textarea" name='record[notes]'><%=record.notes%></textarea>
+    <textarea id="textareaNotes" class="materialize-textarea" name='notes'> <%=record.notes%></textarea>
   </div>
   <br/>
   <br/>
