@@ -82,21 +82,20 @@ app.post('/records', function(req, res) {
 });
 
 app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
-  console.log('one');
   db.Record.findByIdAndUpdate(req.params.id).populate('physical artist music art').exec(function(err, data) {
-    console.log('two');
     if (err) {
-      console.log('three');
       console.log(err);
     } else {
-      console.log('four');
       data.art = req.body.art;
-      data.music = req.body.music;
-      data.physical = req.body.physical;
-      data.artist = req.body.artist;
       data.art.save();
+
+      data.music = req.body.music;
       data.music.save();
+
+      data.physical = req.body.physical;
       data.physical.save();
+
+      data.artist = req.body.artist;
       data.artist.save();
 
       data.genre = req.body.genre;
@@ -107,8 +106,6 @@ app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
       data.notes = req.body.notes;
       data.save();
 
-      console.log('five');
-      console.log(data)
       res.redirect('/records/' + data._id);
     }
   });
