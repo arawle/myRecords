@@ -6,22 +6,45 @@ var Physical = require('./physical');
 var Art = require('./albumArt');
 
 var recordSchema = new mongoose.Schema({
-  physical: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Physical',
-  },
-  artist: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Artist',
-  },
-  music: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Music',
-  },
-  art: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Art',
-  },
+  //physical
+  condition: String,
+  quantity: Number,
+  size: Number,
+  yearPressed: Number,
+  dieCutShape: String,
+  audiofileFeatures: String,
+  rpmSpeed: Number,
+  holeConfiguration: String,
+  productionRun: String,
+  wherePressed: String,
+  whereReleased: String,
+  //artists
+  leadArtists: Array,
+  bandMembers: Array,
+  studioMusicians: Array,
+  songwriters: Array,
+  movieCast: Array,
+  //music
+  tracks: String,
+  yearRecorded: Number,
+  language: String,
+  copyrightHolder: String,
+  yearOfCopyright: Number,
+  studio: String,
+  producer: String,
+  //album art
+  photo: String,
+  colorBW: Boolean,
+  artTheme: String,
+  artists: Array,
+  size: String,
+  dieCut: Boolean,
+  shape: String,
+  objectsInside: String,
+  mistakes: String,
+  colorTheme: String,
+  coverCondition: String,
+  //other
   genre: String,
   use: String,
   lastPrice: Number,
@@ -34,10 +57,6 @@ var recordSchema = new mongoose.Schema({
 });
 
 recordSchema.pre('remove', function(callback) {
-  Physical.remove({record: this_id}).exec();
-  Artist.remove({record: this_id}).exec();
-  Music.remove({record: this_id}).exec();
-  Art.remove({record: this_id}).exec();
   callback();
 });
 

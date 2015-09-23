@@ -7,11 +7,11 @@
         <div class="col s5 m5">
           <div class="card small">
             <div class="card-image">
-              <img src="<%= user.records[i].art.photo %>" alt='Photo of Album Cover' />
-              <span class="card-title"><%= user.records[i].music.tracks %></span>
+              <img src="<%= user.records[i].photo %>" alt='Photo of Album Cover' />
+              <span class="card-title"><%= user.records[i].tracks %></span>
             </div>
             <div class="card-content">
-              <p><%=user.records%></p>
+              <p><%=user.records[i].tracks%></p>
             </div>
             <div class="card-action">
               <a href="/records/<%=user.records[i]._id%>">More Info</a>

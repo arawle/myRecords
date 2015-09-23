@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <h2>Edit Record</h2>
-  <img src='<%=record.art.photo%>' alt='Photo of Record' />
+  <img src='<%=record.photo%>' alt='Photo of Record' width='250px'/>
 
   <% if(record.owner === locals.user) { %>
       <% include ../partials/recordFormEdit %>
