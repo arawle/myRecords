@@ -1,7 +1,10 @@
 <form class="" action="/records/<%=record._id%>?_method=put" method="post">
   <h4>Physical Details</h4>
+  <div class='input-field'>
   Physical Condition:
-  <input type='text' name='physical[condition]' value='<%=record.physical.condition%>' />
+  <input id="physicalCondition" name='record.physical.condition' type="text" >
+    <label for="physicalCondition"><%=record.physical.condition%></label>
+  </div>
   <br/>
   Quantity:
   <input type='text' name='physical[quantity]' value='<%=record.physical.quantity%>' />
