@@ -4,7 +4,7 @@ var recordSchema = new mongoose.Schema({
   //physical
   condition: String,
   quantity: Number,
-  size: Number,
+  sizeDia: Number,
   yearPressed: Number,
   dieCutShape: String,
   audiofileFeatures: String,

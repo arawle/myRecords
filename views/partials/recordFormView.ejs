@@ -1,4 +1,3 @@
-
 <% if (record.available === true && record.forSale === true) { %>
  <button class='buyButton'>Buy</button>
 <% } %>
@@ -11,7 +10,7 @@ Quantity:
 <input disabled type='text' name='quantity' value='<%=record.quantity%>' />
 <br/>
 Diameter in Inches:
-<input disabled type='text' name='size' value='<%=record.size%>' />
+<input disabled type='text' name='size' value='<%=record.sizeDia%>' />
 <br/>
 Year Pressed:
 <input disabled type='text' name='yearPressed' value='<%=record.yearPressed%>' />
@@ -86,7 +85,7 @@ Color or Black and White:
 <input disabled type='text' name='colorBW' value='<%=record.colorBW%>' />
 <br/>
 Art Theme:
-<input disabled type='text' name='artTheme' value='<%=recordTheme%>' />
+<input disabled type='text' name='artTheme' value='<%=record.artTheme%>' />
 <br/>
 Artist(s):
 <input disabled type='text' name='artists' value='<%=record.artists%>' />
