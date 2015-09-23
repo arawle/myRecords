@@ -13,7 +13,14 @@ app.get('/records', function(req, res) {
 });
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
-  res.render('records/newRecord');
+  db.User.findById(req.session.id).exec(function(err, user) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(user)
+      res.render('records/newRecord', {user: user});
+    }
+  })
 });
 
 app.get('/records/:id', function(req, res) {

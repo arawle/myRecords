@@ -1,10 +1,5 @@
 var mongoose = require('mongoose');
 
-var Artist = require('./artist');
-var Music = require('./music');
-var Physical = require('./physical');
-var Art = require('./albumArt');
-
 var recordSchema = new mongoose.Schema({
   //physical
   condition: String,

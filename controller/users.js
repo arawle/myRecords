@@ -21,11 +21,9 @@ app.post('/signup', function(req, res) {
   db.User.create(newUser, function(err, user) {
     console.log('here')
     if (user) {
-      console.log('user', user)
       req.login(user);
       res.redirect('/records');
     } else {
-      console.log('else', user)
       res.redirect('/records');
     }
   });
