@@ -23,7 +23,18 @@ $(document).ready(function() {
   });
 
   $('.setRecordWeek').on('click', function(e) {
-    console.log('clickWeek');
+    var record = $(this).data('record');
+    var dataUrl = $(this).data('url');
+    $.ajax({
+      url: dataUrl,
+      method: 'PUT',
+      data: {
+        recordOfWeek: record,
+      },
+    }).done(function(e) {
+      alert('Record of the Week Set Successfully!')
+    })
   });
+
 
 });
