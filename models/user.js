@@ -18,8 +18,14 @@ var userSchema = new mongoose.Schema({
     ref: 'Record',
   },],
   admin: Boolean,
-  recordOfWeek: String,
-  recordOfMonth: String,
+  recordOfWeek: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Record',
+  },],
+  recordOfMonth: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Record',
+  },],
 });
 
 userSchema.pre('save', function(next) {

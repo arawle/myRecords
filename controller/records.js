@@ -4,7 +4,7 @@ var routeMiddleware = require('../middleware/routeHelper');
 
 app.get('/records', function(req, res) {
   db.Record.find({}).exec(function(err, data) {
-    db.User.findById(req.session.id, function(err, user) {
+    db.User.findById(req.session.id).populate('records recordOfWeek recordOfMonth').exec(function(err, user) {
     if (err) {
           console.log(err);
         } else {

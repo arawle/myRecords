@@ -11,7 +11,7 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/users/:id', function(req, res) {
-  db.User.findById(req.params.id).populate('records').exec(req.params, function(err, data) {
+  db.User.findById(req.params.id).populate('records recordOfWeek recordOfMonth').exec(req.params, function(err, data) {
    console.log(data)
     if (err) {
       console.log(err);
@@ -23,18 +23,13 @@ app.get('/users/:id', function(req, res) {
 });
 
 app.put('/users', function(req, res) {
-  console.log('one');
   db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
-    console.log('two');
     if (err) {
       console.log(err);
     } else {
-      console.log('three')
       user.save();
       res.send('done');
-      console.log('four')
     }
-    console.log('five')
   });
 });
 
