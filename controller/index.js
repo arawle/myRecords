@@ -1,6 +1,6 @@
 //home
 app.get('/', function(req, res) {
-  res.render('homePage')
+  res.render('users/signup')
 });
 
 //require other controllers

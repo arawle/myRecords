@@ -44,8 +44,6 @@ var recordSchema = new mongoose.Schema({
   use: String,
   lastPrice: Number,
   notes: String,
-  recordOfWeek: Boolean,
-  recordOfMonth: Boolean,
   owner: String,
   available: Boolean,
   forSale: Boolean,

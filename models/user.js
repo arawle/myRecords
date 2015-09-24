@@ -18,6 +18,8 @@ var userSchema = new mongoose.Schema({
     ref: 'Record',
   },],
   admin: Boolean,
+  recordOfWeek: String,
+  recordOfMonth: String,
 });
 
 userSchema.pre('save', function(next) {
