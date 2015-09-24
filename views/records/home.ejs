@@ -3,10 +3,10 @@
 <h3>All Records</h3>
 
 <% for (var i = 0; i < record.length; i++){ %>
-  <div>
+  <div class='allRecords col s4 m4'>
   <%=record.tracks%>
   <br/>
-  <img src='<%=record[i].photo%>' alt='Individual Record Photo' />
+  <img src='<%=record[i].photo%>' alt='Individual Record Photo' width='200px'/>
   <br/>
   Last Price: <%=record.lastPrice%>
   <br/>
