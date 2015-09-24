@@ -12,7 +12,26 @@
   <br/>
   <button class='details' data-id='<%=record[i]._id%>'>More Info</button>
   <% if (record[i].available === true && record[i].forSale === true) { %>
-    <button class='buyButton'>Buy</button>
+    <!-- <button class='buyButton'>Buy</button> -->
+
+    <form action="/stripe" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
+        data-amount= '<%=record[i].lastPrice
+        *100%>'
+        data-name='Records'
+        data-description='<%=record[i].tracks%>'
+        data-image="/128x128.png"
+        data-locale="auto"
+        data-shipping-address= 'true'>
+      </script>
+      <input style="display:none" name="productAmount" value="<%=record[i].lastPrice%>">
+        <input style="display:none" name="productName" value="<%=record[i].tracks%>">
+        <input style="display:none" name="productID" value="<%=record[i]._id%>">
+    </form>
+
   <% } %>
   <br/>
   <br/>

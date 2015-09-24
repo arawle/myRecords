@@ -6,6 +6,7 @@ app.get('/', function(req, res) {
 //require other controllers
 require('./users');
 require('./records');
+require('./charge')
 
 //404 render
 app.get('*', function(req, res) {

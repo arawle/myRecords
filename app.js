@@ -5,6 +5,10 @@ var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var db = require('./models');
+
+//for stripe
+stripe = require("stripe")("sk_test_BQokikJOvBiI2HlWgH4olfQ2");
+
 loginMiddleware = require('./middleware/loginHelper');
 routeMiddleware = require('./middleware/routeHelper');
 

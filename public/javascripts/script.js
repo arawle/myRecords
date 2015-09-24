@@ -22,17 +22,17 @@ $(document).ready(function() {
     })
   });
 
-  $('.setRecordWeek').on('click', function(e) {
+  $('.setRecordMonth').on('click', function(e) {
     var record = $(this).data('record');
     var dataUrl = $(this).data('url');
     $.ajax({
       url: dataUrl,
       method: 'PUT',
       data: {
-        recordOfWeek: record,
+        recordOfMonth: record,
       },
     }).done(function(e) {
-      alert('Record of the Week Set Successfully!')
+      alert('Record of the Month Set Successfully!')
     })
   });
 
