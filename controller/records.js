@@ -16,6 +16,7 @@ app.get('/records', function(req, res) {
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
   db.User.findById(req.session.id).exec(function(err, user) {
+    console.log(user)
     if (err) {
       console.log(err);
     } else {
@@ -27,12 +28,14 @@ app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
 
 app.get('/records/:id', function(req, res) {
   db.Record.findById(req.params.id).exec(function(err, data) {
-    if (err) {
-      console.log(err);
-      res.render('404');
-    } else {
-      res.render('records/record', {record: data});
-    }
+    db.User.findById(req.session.id, function(err, user) {
+      if (err) {
+        console.log(err);
+        res.render('404');
+      } else {
+        res.render('records/record', {record: data, user: user});
+      }
+    });
   });
 });
 
