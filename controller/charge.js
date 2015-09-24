@@ -7,8 +7,6 @@ app.post('/stripe', function(req, res, next) {
   var userID = req.session.id;
   // Simple validation
   db.Record.findById(req.body.productID, function(err, data) {
-    console.log(data.lastPrice)
-    console.log(req.body.productAmount)
     if (err) {
       return next(err);
     } else {
@@ -22,7 +20,6 @@ app.post('/stripe', function(req, res, next) {
             source: stripeToken,
             description: "Example charge"
           }, function(err, charge) {
-            console.log('here')
             if (err && err.type === 'StripeCardError') {
               alert('Error processing payment, please try again!');
             }

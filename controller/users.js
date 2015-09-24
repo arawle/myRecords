@@ -16,7 +16,6 @@ app.get('/users/:id', function(req, res) {
       console.log(err);
       res.render('404');
     } else {
-      console.log('datadatadata ', data)
       res.render('users/userProfile', {user: data});
     }
   });
