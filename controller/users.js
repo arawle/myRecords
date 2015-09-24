@@ -22,6 +22,21 @@ app.get('/users/:id', function(req, res) {
   });
 });
 
+app.put('/users', function(req, res) {
+  console.log('one');
+  db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
+    console.log('two');
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('three')
+      user.save();
+      res.send('done');
+      console.log('four')
+    }
+    console.log('five')
+  });
+});
 
 app.post('/signup', function(req, res) {
   var newUser = req.body.user;

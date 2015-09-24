@@ -37,7 +37,6 @@ app.get('/records/:id', function(req, res) {
 });
 
 app.post('/records', function(req, res) {
-   console.log(req.body)
   db.Record.create(req.body, function(err, record) {
     if (err) {
       console.log(err);
