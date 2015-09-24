@@ -15,7 +15,7 @@ app.get('/records', function(req, res) {
 });
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
-  db.User.findById(req.session.id).exec(function(err, user) {
+  db.User.findById(req.session.id).populate('records recordOfWeek recordOfMonth').exec(function(err, user) {
     console.log(user)
     if (err) {
       console.log(err);
@@ -28,7 +28,7 @@ app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
 
 app.get('/records/:id', function(req, res) {
   db.Record.findById(req.params.id).exec(function(err, data) {
-    db.User.findById(req.session.id, function(err, user) {
+    db.User.findById(req.session.id).populate('records recordOfWeek recordOfMonth').exec(function(err, user) {
       if (err) {
         console.log(err);
         res.render('404');
