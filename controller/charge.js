@@ -2,11 +2,9 @@ var db = require('../models');
 var mongoose = require('mongoose');
 
 app.post('/stripe', function(req, res, next) {
-
   // Obtain StripeToken
   var stripeToken = req.body.stripeToken;
   var userID = req.session.id;
-
   // Simple validation
   db.Record.findById(req.body.productID, function(err, data) {
     console.log(data.lastPrice)
@@ -36,5 +34,5 @@ app.post('/stripe', function(req, res, next) {
     record.available = false;
     record.save();
   })
-  res.send('charged')
+  res.redirect('/records');
 });

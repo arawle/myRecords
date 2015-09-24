@@ -1,4 +1,5 @@
-
+<%= console.log(user.recordOfWeek.length) %>
+<% if (user.recordOfWeek.length) { %>
 <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
     <img class="activator" src='<%=user.recordOfWeek[0].photo%>'>
@@ -7,7 +8,7 @@
     <span class="card-title activator grey-text text-darken-4">Record of the Week<i class="material-icons right">more_vert</i></span>
     <p><a href='/records/<%=user.recordOfWeek%>'>More information</a></p>
 
-    <% if (locals.user == '56031903e967cd6c3c960150') { %>
+    <% if (locals.user == '56046cd06847f33c451c4326') { %>
       <a href="#">Edit</a>
     <% } %>
 
@@ -28,7 +29,7 @@
     <span class="card-title activator grey-text text-darken-4">Record of the Month<i class="material-icons right">more_vert</i></span>
     <p><a href="#">More Information</a></p>
 
-    <% if (locals.user == '56031903e967cd6c3c960150') { %>
+    <% if (locals.user == '56046cd06847f33c451c4326') { %>
       <a href="#">Edit</a>
     <% } %>
 
@@ -38,3 +39,4 @@
     <p>More details about the Record of the Month</p>
   </div>
 </div>
+<% } %>

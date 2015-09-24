@@ -11,12 +11,12 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/users/:id', function(req, res) {
-  db.User.findById(req.params.id).populate('records recordOfWeek recordOfMonth').exec(req.params, function(err, data) {
-   console.log(data)
+  db.User.findById(req.params.id).populate('records recordOfWeek recordOfMonth').exec(function(err, data) {
     if (err) {
       console.log(err);
       res.render('404');
     } else {
+      console.log('datadatadata ', data)
       res.render('users/userProfile', {user: data});
     }
   });
