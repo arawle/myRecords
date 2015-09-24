@@ -11,8 +11,8 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/users/:id', function(req, res) {
-  db.User.findById(req.params.id).exec(function(err, data) {
-    console.log(data)
+  db.User.findById(req.params.id).populate('records').exec(req.params, function(err, data) {
+   console.log(data)
     if (err) {
       console.log(err);
       res.render('404');

@@ -4,12 +4,14 @@ var routeMiddleware = require('../middleware/routeHelper');
 
 app.get('/records', function(req, res) {
   db.Record.find({}).exec(function(err, data) {
+    db.User.findById(req.session.id, function(err, user) {
     if (err) {
-      console.log(err);
-    } else {
-      res.render('records/home', {record: data});
-    }
-  });
+          console.log(err);
+        } else {
+          res.render('records/home', {record: data, user: user});
+        }
+    });
+  })
 });
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {

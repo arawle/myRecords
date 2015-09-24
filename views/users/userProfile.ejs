@@ -14,7 +14,11 @@
               <p><%=user.records[i].tracks%></p>
             </div>
             <div class="card-action">
-              <button class='details' data-id="<%=user.records[i]%>">More Info</button>
+             <button class='details' data-id="<%=user.records[i]._id%>">More Info</button>
+              <% if(user.records[i].owner == locals.user._id) { %>
+                <button class='setRecordMonth'>Set Record of Month</button>
+                <button class='setRecordWeek'>Set Record of Week</button>
+              <% } %>
             </div>
           </div>
         </div>
