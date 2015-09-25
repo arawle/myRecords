@@ -116,8 +116,17 @@
   Shape:
   <input type='text' name='shape' value='<%=record.shape%>' />
   <br/>
-  Objects Inside:
-  <input type='text' name='objectsInside' value='<%=record.objectsInside%>' />
+  <% if ( record.objectsInside === true) { %>
+    Objects Inside:
+    <input type='radio' name='objectsInside' value='true' id='objectsInsideTrue' checked /><label for='objectsInsideTrue'>Yes</label>
+    <input type='radio' name='objectsInside' value='false' id='objectsInsideFalse'/><label for='objectsInsideFalse'>No</label>
+    <br/>
+  <% } else { %>
+    Objects Inside:
+    <input type='radio' name='objectsInside' value='true' id='objectsInsideTrue' /><label for='objectsInsideTrue'>Yes</label>
+    <input type='radio' name='objectsInside' value='false' id='objectsInsideFalse' checked/><label for='objectsInsideFalse'>No</label>
+    <br/>
+  <% } %>
   <br/>
   Mistakes:
   <input type='text' name='mistakes' value='<%=record.mistakes%>' />
