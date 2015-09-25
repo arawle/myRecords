@@ -154,7 +154,28 @@ Genre:
 <input disabled type='text' name='record[genre]' value='<%=record.genre%>' />
 <br/>
 Use:
-<input disabled type='text' name='record[use]' value='<%=record.use%>' />
+  <% if (record.use  == 'Release') { %>
+    <select name='use' class="browser-default" disabled>
+    <option name='use' value="Release" >Release</option>
+    <option name='use' value="Promotion">Promotion</option>
+    <option name='use' value="Teaching">Teaching</option>
+  </select>
+  <br/>
+  <% } else if(record.use == 'Promotion') { %>
+    <select name='use' class="browser-default" disabled>
+    <option name='use' value="Release">Release</option>
+    <option name='use' value="Promotion" selected>Promotion</option>
+    <option name='use' value="Teaching">Teaching</option>
+  </select>
+  <br/>
+  <% } else { %>
+    <select name='use' class="browser-default" disabled>
+    <option name='use' value="Release">Release</option>
+    <option name='use' value="Promotion">Promotion</option>
+    <option name='use' value="Teaching" selected>Teaching</option>
+  </select>
+  <br/>
+  <% } %>
 <br/>
 Last Price:
 <input disabled type='text' name='record[lastPrice]' value='<%=record.lastPrice%>' />

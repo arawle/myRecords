@@ -143,7 +143,30 @@
   <input type='text' name='genre' value='<%=record.genre%>' />
   <br/>
   Use:
-  <input type='text' name='use' value='<%=record.use%>' />
+  <br/>
+  <% if (record.use  == 'Release') { %>
+    <select name='use' class="browser-default">
+    <option name='use' value="Release" >Release</option>
+    <option name='use' value="Promotion">Promotion</option>
+    <option name='use' value="Teaching">Teaching</option>
+  </select>
+  <br/>
+  <% } else if(record.use == 'Promotion') { %>
+    <select name='use' class="browser-default">
+    <option name='use' value="Release">Release</option>
+    <option name='use' value="Promotion" selected>Promotion</option>
+    <option name='use' value="Teaching">Teaching</option>
+  </select>
+  <br/>
+  <% } else { %>
+    <select name='use' class="browser-default">
+    <option name='use' value="Release">Release</option>
+    <option name='use' value="Promotion">Promotion</option>
+    <option name='use' value="Teaching" selected>Teaching</option>
+  </select>
+  <br/>
+  <% } %>
+
   <br/>
   Last Price:
   <input type='text' name='lastPrice' value='<%=record.lastPrice%>' />
