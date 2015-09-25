@@ -1,9 +1,8 @@
 <% include ../partials/header %>
 
-  <h2>Hello <%= user.email %> </h2>
+<h2>Hello <%= user.email %> </h2>
 
 Your Records: <br/>
-
   <% for (var i = 0; i < user.records.length; i++) { %>
         <div class="col s5 m5">
           <div class="card small">
@@ -24,5 +23,4 @@ Your Records: <br/>
           </div>
         </div>
   <% } %>
-
 <% include ../partials/footer %>
