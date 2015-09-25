@@ -1,3 +1,7 @@
+nav {
+  text-align: center;
+}
+
 .allRecords {
   height: 250px;
   width: 250px;
@@ -7,3 +11,4 @@
 .adminPass {
   position: relative;
 }
+
