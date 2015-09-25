@@ -16,8 +16,19 @@
       <div class="container">
         <div class="row teal lighten-2">
           <h3 class='col l6'>Records</h3>
+              <nav>
+                <div class="nav-wrapper col l6">
+                  <form>
+                    <div class="input-field">
+                      <input id="search" type="search" required>
+                      <label for="search"><i class="material-icons">search</i></label>
+                      <i class="material-icons">close</i>
+                    </div>
+                  </form>
+                </div>
+              </nav>
             <% if (locals.user !== null) { %>
-              <nav class='col l6 teal darken-2'>
+              <nav class='col l12 teal darken-2'>
               <a class='col l3' href="/records">Home</a>
               <a class='col l3' href="/records/new">Add Record</a>
               <a class='col l3' href="/users/<%=user._id%>">My Account</a>
