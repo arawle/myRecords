@@ -35,7 +35,7 @@ var recordSchema = new mongoose.Schema({
   size: String,
   dieCut: Boolean,
   shape: String,
-  objectsInside: String,
+  objectsInside: Boolean,
   mistakes: String,
   colorTheme: String,
   coverCondition: String,
