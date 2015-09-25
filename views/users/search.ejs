@@ -2,33 +2,9 @@
 
   <h2> Search Results </h2>
 
-  <% if (data == undefined) { %>
-    Could not find. Please search again.
-    <% } else { %>
-      <% for (var i = 0; i < data.length; i ++) { %>
-        <div>
-        <span class='title'><b><%= data[i].volumeInfo.title %></b></span>
-        <br/>
-        <br/>
-        <% if (data[i].volumeInfo.imageLinks == undefined) { %>
-          <img class='image' alt = 'No Photo Available' />
-        <% } else { %>
-          <img class='image' src="<%= data[i].volumeInfo.imageLinks.thumbnail %>" alt = 'No Photo Available' />
-        <% } %>
-        <br/>
-        <span class='author'> <%= data[i].volumeInfo.authors %> </span>
-        <br/>
-        <span class='year'> <%= data[i].volumeInfo.publishedDate %> </span>
-        <br/>
-        <% if (data[i].volumeInfo.industryIdentifiers == undefined) { %>
-           <span class='isbn'></span>
-        <% } else { %>
-          <span class='isbn'><%= data[i].volumeInfo.industryIdentifiers.identifier %></span>
-        <% } %>
+  <%= console.log('dataejs ', data)%>
 
-      </div>
-    <% } %>
-   <% } %>
-  <br/>
+  <%= data[0].leadArtists %>
+
 
 <% include ../partials/footer %>
