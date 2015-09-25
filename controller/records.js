@@ -16,11 +16,9 @@ app.get('/records', function(req, res) {
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
   db.User.findById(req.session.id).populate('records recordOfWeek recordOfMonth').exec(function(err, user) {
-    console.log(user)
     if (err) {
       console.log(err);
     } else {
-      console.log(user)
       res.render('records/newRecord', {user: user});
     }
   })

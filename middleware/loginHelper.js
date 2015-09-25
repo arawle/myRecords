@@ -15,7 +15,14 @@ var loginHelpers = function(req, res, next) {
     res.locals.user = req.session.id;
   }
 
-  next();
+  db.User.findById('56056d08c1f6e05654af18da').populate('records, recordOfWeek, recordOfMonth').exec(function(err, superUser) {
+    if (err) {
+      console.log(err);
+    } else {
+     res.locals.superUser= superUser;
+    }
+    next();
+  });
 };
 
 module.exports = loginHelpers;
