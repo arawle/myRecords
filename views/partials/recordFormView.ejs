@@ -121,8 +121,17 @@ Artist(s):
 Size:
 <input disabled type='text' name='size' value='<%=record.size%>' />
 <br/>
-Die Cut:
-<input disabled type='text' name='dieCut' value='<%=record.dieCut%>' />
+<% if ( record.dieCut === true) { %>
+  Die Cut:
+  <input type='radio' name='dieCut' value='true' id='dieCutTrue' checked /><label for='dieCutTrue'>Yes</label>
+  <input type='radio' name='dieCut' value='false' id='dieCutFalse'/><label for='dieCutFalse'>No</label>
+  <br/>
+<% } else { %>
+  Die Cut:
+  <input type='radio' name='dieCut' value='true' id='dieCutTrue' /><label for='dieCutTrue'>Yes</label>
+  <input type='radio' name='dieCut' value='false' id='dieCutFalse' checked/><label for='colorBWFalse'>No</label>
+  <br/>
+<% } %>
 <br/>
 Shape:
 <input disabled type='text' name='shape' value='<%=record.shape%>' />
