@@ -100,8 +100,17 @@ Producer:
 Album Cover Photo:
 <input disabled type='text' name='photo' value='<%=record.photo%>' />
 <br/>
-Color or Black and White:
-<input disabled type='text' name='colorBW' value='<%=record.colorBW%>' />
+<% if ( record.colorBW === true) { %>
+  Color or Black and White:
+  <input type='radio' name='colorBW' value='true' id='colorBWTrue' checked /><label for='colorBWTrue'>Color</label>
+  <input type='radio' name='colorBW' value='false' id='colorBWFalse'/><label for='colorBWFalse'>Black and White</label>
+  <br/>
+<% } else { %>
+  Color or Black and White:
+  <input type='radio' name='colorBW' value='true' id='colorBWTrue' /><label for='colorBWTrue'>Color</label>
+  <input type='radio' name='colorBW' value='false' id='colorBWFalse' checked/><label for='colorBWFalse'>Black and White</label>
+  <br/>
+<% } %>
 <br/>
 Art Theme:
 <input disabled type='text' name='artTheme' value='<%=record.artTheme%>' />
