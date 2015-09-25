@@ -34,7 +34,6 @@ app.get('/admins', function(req, res) {
 
 app.put('/users', function(req, res) {
   db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
-    console.log('admin feature test', req.body)
     if (err) {
       console.log(err);
     } else {
