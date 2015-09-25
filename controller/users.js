@@ -21,7 +21,7 @@ app.get('/users/:id', function(req, res) {
   });
 });
 
-app.get('/admin', function(req, res) {
+app.get('/admins', function(req, res) {
   db.User.findById(req.params.id, function(err, data) {
     if (err) {
       console.log(err);
@@ -34,6 +34,7 @@ app.get('/admin', function(req, res) {
 
 app.put('/users', function(req, res) {
   db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
+    console.log('admin feature test', req.body)
     if (err) {
       console.log(err);
     } else {
@@ -48,14 +49,14 @@ app.put('/admins', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      if (req.body.adminPass === 'c0ngr@t5@dm!n') {
-        user.admin = true;
-        user.save;
+        if (req.body.adminPass == 'one') {
+          user.admin = true;
       }
-        res.redirect('/users/' + req.session.id)
     }
-  })
-})
+    user.save();
+    res.redirect('/users/' + req.session.id);
+  });
+});
 
 app.post('/signup', function(req, res) {
   var newUser = req.body.user;
