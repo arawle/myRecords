@@ -1,20 +1,17 @@
 <% if (locals.superUser.recordOfWeek.length) { %>
 <div class="card">
   <div class="card-image waves-effect waves-block waves-light">
-    <img class="activator" src='<%=locals.superUser.recordOfWeek[0].photo%>' alt='record of week photo'>
+    <img class="activator" src='<%=locals.superUser.recordOfWeek[0].photo%>' alt='record of week'>
   </div>
   <div class="card-content">
     <span class="card-title activator grey-text text-darken-4">Record of the Week<i class="material-icons right">more_vert</i></span>
-    <p><a href='/records/<%=locals.superUser.recordOfWeek[0]._id%>'>More information</a></p>
-
-    <% if (user.admin == true) { %>
-      <a href="/records/<%=locals.superUser.recordOfWeek[0]._id%>">Edit</a>
-    <% } %>
+    <p><a href="/records/<%=locals.superUser.recordOfWeek[0]._id%>">More Information</a></p>
 
   </div>
   <div class="card-reveal">
-    <span class="card-title grey-text text-darken-4">Record of the Month<i class="material-icons right">close</i></span>
-    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+    <span class="card-title grey-text text-darken-4">Record of the Week<i class="material-icons right">close</i></span>
+    <p>More details about the Record of the Week</p>
+  </div>
 </div>
 
 <br/>
@@ -26,16 +23,47 @@
   </div>
   <div class="card-content">
     <span class="card-title activator grey-text text-darken-4">Record of the Month<i class="material-icons right">more_vert</i></span>
-    <p><a href="/records/<%=superUser.recordOfMonth[0]._id%>">More Information</a></p>
-
-    <% if (user.admin == true) { %>
-      <a href="/records/<%=locals.superUser.recordOfWeek[0]._id%>">Edit</a>
-    <% } %>
+    <p><a href="/records/<%=locals.superUser.recordOfMonth[0]._id%>">More Information</a></p>
 
   </div>
   <div class="card-reveal">
     <span class="card-title grey-text text-darken-4">Record of the Month<i class="material-icons right">close</i></span>
-    <p>More details about the Record of the Month</p>
+    <p>
+      <br/>
+      <br/>
+      Tracks: <%= locals.superUser.recordOfMonth[0].tracks %>
+      <br/>
+      Artist/Band: <%= locals.superUser.recordOfMonth[0].leadArtists %>
+      <br/>
+      Genre: <%= locals.superUser.recordOfMonth[0].genre %>
+      <br/>
+      Price: $<%= locals.superUser.recordOfMonth[0].lastPrice%>
+      <br/>
+      <br/>
+      <p><a href="/records/<%=locals.superUser.recordOfMonth[0]._id%>">More Information</a></p>
+      <br/>
+      <br/>
+      <% if (locals.superUser.recordOfMonth[0].available === true && locals.superUser.recordOfMonth[0].forSale === true && locals.superUser.recordOfMonth[0].lastPrice !== null && locals.superUser.recordOfMonth[0].lastPrice !== undefined) { %>
+        <form action="/stripe" method="POST">
+          <script
+            src="https://checkout.stripe.com/checkout.js"
+            class="stripe-button"
+            data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
+            data-amount= '<%=locals.superUser.recordOfMonth[0].lastPrice
+            *100%>'
+            data-name='Records'
+            data-description='<%=locals.superUser.recordOfMonth[0].tracks%>'
+            data-image="/128x128.png"
+            data-locale="auto"
+            data-shipping-address= 'true'>
+          </script>
+          <input style="display:none" name="productAmount" value="<%=locals.superUser.recordOfMonth[0].lastPrice%>">
+            <input style="display:none" name="productName" value="<%=locals.superUser.recordOfMonth[0].tracks%>">
+            <input style="display:none" name="productID" value="<%=locals.superUser.recordOfMonth[0]._id%>">
+        </form>
+
+       <% } %>
+    </p>
   </div>
 </div>
 <% } %>
