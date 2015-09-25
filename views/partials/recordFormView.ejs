@@ -1,6 +1,25 @@
-<% if (record.available === true && record.forSale === true) { %>
- <button class='buyButton'>Buy</button>
-<% } %>
+  <% if (record.available === true && record.forSale === true && record.lastPrice !== null && record.lastPrice !== undefined) { %>
+    <!-- <button class='buyButton'>Buy</button> -->
+
+    <form action="/stripe" method="POST">
+      <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
+        data-amount= '<%=record.lastPrice
+        *100%>'
+        data-name='Records'
+        data-description='<%=record.tracks%>'
+        data-image="/128x128.png"
+        data-locale="auto"
+        data-shipping-address= 'true'>
+      </script>
+      <input style="display:none" name="productAmount" value="<%=record.lastPrice%>">
+        <input style="display:none" name="productName" value="<%=record.tracks%>">
+        <input style="display:none" name="productID" value="<%=record._id%>">
+    </form>
+
+  <% } %>
 
 <h4>Physical Details</h4>
 Physical Condition:
