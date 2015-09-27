@@ -19,7 +19,8 @@ app.post('/stripe', function(req, res, next) {
           currency: "usd",
           source: stripeToken,
           description: "Example charge"
-        }, function(err, charge) {
+        },
+        function(err, charge) {
           if (err && err.type === 'StripeCardError') {
             alert('Error processing payment, please try again!');
           }

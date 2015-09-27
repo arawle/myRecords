@@ -34,16 +34,6 @@
     <% } %>
     <br/>
     <br/>
-    <div>
-    <% if(data[i].owner === locals.user) { %>
-      Admin Functions:
-      <br/>
-      <br/>
-      <button class='details' data-id='<%=data[i]._id%>'>Edit</button>
-      <button class='list'>List It</button>
-      <% include ../partials/availableAndSaleForm %>
-    <% } %>
-    </div>
     </div>
   <% } %>
 <% } %>

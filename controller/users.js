@@ -48,8 +48,9 @@ app.put('/admins', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      if (req.body.adminPass == 'c0ngr@ts@dm!n') {
+      if (req.body.adminPass == '$2a$10$NhFuDxvOofDjVrJAq9eCe.n8KEOZPBEvjI7rBKpaMCwRO4E3bCrCCc') {
         user.admin = true;
+        console.log('test worked')
       }
     }
     user.save();
