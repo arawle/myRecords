@@ -1,8 +1,51 @@
 <% include ../partials/header %>
 
+<%= console.log('dataejs ', data)%>
+
+<% if (data.length) { %>
   <h2> Search Results </h2>
-
-  <%= console.log('dataejs ', data)%>
-
+  <% for (var i = 0; i < data.length; i++){ %>
+    <div class='allRecords col l4 m4 hoverable'>
+    <%=data[i].tracks%>
+    <br/>
+    <img src='<%=data[i].photo%>' alt='Individual Record Photo' width='200px'/>
+    <br/>
+    Last Price: <%=data[i].lastPrice%>
+    <br/>
+    <button class='details' data-id='<%=data[i]._id%>'>More Info</button>
+    <% if (data[i].available === true && data[i].forSale === true && data[i].lastPrice !== null && data[i].lastPrice !== undefined) { %>
+      <form action="/stripe" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js"
+          class="stripe-button"
+          data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
+          data-amount= '<%=data[i].lastPrice
+          *100%>'
+          data-name='Records'
+          data-description='<%=data[i].tracks%>'
+          data-image="/128x128.png"
+          data-locale="auto"
+          data-shipping-address= 'true'>
+        </script>
+        <input style="display:none" name="productAmount" value="<%=data[i].lastPrice%>">
+        <input style="display:none" name="productName" value="<%=data[i].tracks%>">
+        <input style="display:none" name="productID" value="<%=data[i]._id%>">
+      </form>
+    <% } %>
+    <br/>
+    <br/>
+    <div>
+    <% if(data[i].owner === locals.user) { %>
+      Admin Functions:
+      <br/>
+      <br/>
+      <button class='details' data-id='<%=data[i]._id%>'>Edit</button>
+      <button class='list'>List It</button>
+      <% include ../partials/availableAndSaleForm %>
+    <% } %>
+    </div>
+    </div>
+  <% } %>
+<% } %>
 
 <% include ../partials/footer %>

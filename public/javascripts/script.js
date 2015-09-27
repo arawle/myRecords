@@ -15,8 +15,8 @@ $(document).ready(function() {
         recordOfMonth: record,
       },
     }).done(function(e) {
-      alert('Record of the Month Set Successfully!')
-    })
+      alert('Record of the Month Set Successfully!');
+    });
   });
 
   $('.setRecordWeek').on('click', function(e) {
@@ -29,7 +29,7 @@ $(document).ready(function() {
         recordOfWeek: record,
       },
     }).done(function(e) {
-      alert('Record of the Week Set Successfully!')
-    })
+      alert('Record of the Week Set Successfully!');
+    });
   });
 });

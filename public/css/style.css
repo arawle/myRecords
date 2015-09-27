@@ -1,17 +1,14 @@
 nav {
   text-align: center;
 }
-
 .allRecords {
   height: 250px;
   width: 250px;
   overflow: auto;
 }
-
 .adminPass {
   position: relative;
 }
-
 .featured{
   width: 200px;
 }

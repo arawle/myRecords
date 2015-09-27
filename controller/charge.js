@@ -13,23 +13,23 @@ app.post('/stripe', function(req, res, next) {
       if (parseInt(req.body.productAmount) !== parseInt(data.lastPrice)) {
         return res.redirect('/records');
       } else {
-          // Create Charge
-          var charge = stripe.charges.create({
-            amount: 1000, // amount in cents, again
-            currency: "usd",
-            source: stripeToken,
-            description: "Example charge"
-          }, function(err, charge) {
-            if (err && err.type === 'StripeCardError') {
-              alert('Error processing payment, please try again!');
-            }
-          });
+        // Create Charge
+        var charge = stripe.charges.create({
+          amount: 1000, // amount in cents, again
+          currency: "usd",
+          source: stripeToken,
+          description: "Example charge"
+        }, function(err, charge) {
+          if (err && err.type === 'StripeCardError') {
+            alert('Error processing payment, please try again!');
+          }
+        });
       }
     }
   });
   db.Record.findByIdAndUpdate(req.body.productID, req.body.available, function(err, record) {
     record.available = false;
     record.save();
-  })
+  });
   res.redirect('/records');
 });

@@ -11,7 +11,7 @@ app.get('/records', function(req, res) {
           res.render('records/home', {record: data, user: user});
         }
     });
-  })
+  });
 });
 
 app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
@@ -21,7 +21,7 @@ app.get('/records/new', routeMiddleware.ensureLoggedIn, function(req, res) {
     } else {
       res.render('records/newRecord', {user: user});
     }
-  })
+  });
 });
 
 app.get('/records/:id', function(req, res) {
