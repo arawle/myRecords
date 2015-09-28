@@ -40,13 +40,13 @@ $(document).ready(function() {
 
   $('.delete').on('click', function(e) {
     var idNum = $(this).data('id');
-    var userId = $(this).data('owner');
+    var userRedirect = $(this).data('redirect');
     $.ajax({
       url: '/records/' + idNum,
       method: 'DELETE',
     }).done(function(e) {
       alert('Record deleted successfully!');
-      window.location.href = '/users/' + userId;
+      window.location.href = userRedirect;
     });
   });
 
