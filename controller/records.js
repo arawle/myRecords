@@ -42,7 +42,9 @@ app.post('/records', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-
+      if(req.body.photo == '') {
+        record.photo = 'http://www.thatpetplace.com/c.1043140/site/img/photo_na.jpg';
+      }
       db.User.findById(req.session.id, function(err, user) {
         //add record id to User records and save
         user.records.push(record._id);
