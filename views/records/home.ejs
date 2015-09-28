@@ -11,9 +11,8 @@
   Last Price: <%=record.lastPrice%>
   <br/>
   <button class='details' data-id='<%=record[i]._id%>'>More Info</button>
-  <% if (record[i].available === true && record[i].forSale === true && record[i].lastPrice !== null && record[i].lastPrice !== undefined) { %>
+  <% if (record[i].available === true && record[i].forSale === true && record[i].lastPrice !== null && record[i].lastPrice !== undefined && record[i].owner != locals.user._id) { %>
     <!-- <button class='buyButton'>Buy</button> -->
-
     <form action="/stripe" method="POST">
       <script
         src="https://checkout.stripe.com/checkout.js"
@@ -36,7 +35,7 @@
   <br/>
   <br/>
     <div>
-    <% if(record[i].owner === locals.user) { %>
+    <% if(record[i].owner === locals.user._id) { %>
       Admin Functions:
       <br/>
       <br/>
