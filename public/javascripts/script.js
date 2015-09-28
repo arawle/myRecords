@@ -37,7 +37,7 @@ $(document).ready(function() {
   $('#search').on('click', function(e) {
     ($(this).attr('value', ''));
   });
-
+  //removes a record
   $('.delete').on('click', function(e) {
     var idNum = $(this).data('id');
     var userRedirect = $(this).data('redirect');
