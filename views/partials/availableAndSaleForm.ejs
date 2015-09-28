@@ -1,5 +1,5 @@
 <form class="" action="/records/<%=record[i]._id%>?_method=put" method="post">
- <% if ( record[i].available  === true) { %>
+ <% if (record[i].available  === true) { %>
     Available:
     <input type='radio' name='available' value='true' id='availableTrue' checked /><label for='availableTrue'>Yes</label>
     <input type='radio' name='available' value='false' id='availableFalse'/><label for='availableFalse'>No</label>

@@ -1,14 +1,14 @@
 <% include ../partials/header %>
 
 <h3>All Records</h3>
-
 <% for (var i = 0; i < record.length; i++){ %>
   <div class='allRecords col l4 m4 hoverable'>
-  <%=record[i].tracks%>
+  <br/>
+  <b><%=record[i].tracks%></b>
   <br/>
   <img src='<%=record[i].photo%>' alt='Individual Record Photo' width='200px'/>
   <br/>
-  Last Price: <%=record[i].lastPrice%>
+  Last Price: $<%=record[i].lastPrice%>
   <br/>
   <button class='details' data-id='<%=record[i]._id%>'>More Info</button>
   <% if (record[i].available === true && record[i].forSale === true && record[i].lastPrice !== null && record[i].lastPrice !== undefined && record[i].owner != locals.user._id) { %>
