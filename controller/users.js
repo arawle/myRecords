@@ -1,15 +1,15 @@
 var db = require('../models/index');
 var routeMiddleware = require('../middleware/routeHelper');
-
+//signup page
 app.get('/signup', routeMiddleware.preventLoginSignup, function(req, res) {
   res.render('users/signup');
 });
-
+//logout page
 app.get('/logout', function(req, res) {
   req.logout();
   res.redirect('/');
 });
-
+//individule user profile
 app.get('/users/:id', function(req, res) {
   db.User.findById(req.params.id).populate('records recordOfWeek recordOfMonth').exec(function(err, data) {
     if (err) {
@@ -20,7 +20,7 @@ app.get('/users/:id', function(req, res) {
     }
   });
 });
-
+//display enter password page to add admin
 app.get('/admins', function(req, res) {
   db.User.findById(req.params.id, function(err, data) {
     if (err) {
@@ -42,7 +42,7 @@ app.put('/users', function(req, res) {
     }
   });
 });
-
+//create admin
 app.put('/admins', function(req, res) {
   db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
     if (err) {
@@ -57,7 +57,7 @@ app.put('/admins', function(req, res) {
     res.redirect('/users/' + req.session.id);
   });
 });
-
+// signup new user
 app.post('/signup', function(req, res) {
   var newUser = req.body.user;
   db.User.create(newUser, function(err, user) {
@@ -69,7 +69,7 @@ app.post('/signup', function(req, res) {
     }
   });
 });
-
+//login user
 app.post('/login', function(req, res) {
   db.User.authenticate(req.body.user, function(err, user) {
     if (!err && user !== null) {
