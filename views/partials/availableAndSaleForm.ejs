@@ -1,25 +1,25 @@
 <form class="" action="/records/<%=record[i]._id%>?_method=put" method="post">
  <% if (record[i].available  === true) { %>
     Available:
-    <input type='radio' name='available' value='true' id='availableTrue' checked /><label for='availableTrue'>Yes</label>
-    <input type='radio' name='available' value='false' id='availableFalse'/><label for='availableFalse'>No</label>
+    <input type='radio' name='available' value='true' id='availableTrue<%=[i]%>' checked /><label for='availableTrue<%=[i]%>'>Yes</label>
+    <input type='radio' name='available' value='false' id='availableFalse<%=[i]%>'/><label for='availableFalse<%=[i]%>'>No</label>
     <br/>
   <% } else { %>
     Available:
-    <input type='radio' name='available' value='true' id='availableTrue' /><label for='availableTrue'>Yes</label>
-    <input type='radio' name='available' value='false' id='availableFalse' checked/><label for='availableFalse'>No</label>
+    <input type='radio' name='available' value='true' id='availableTrue<%=[i]%>' /><label for='availableTrue<%=[i]%>'>Yes</label>
+    <input type='radio' name='available' value='false' id='availableFalse<%=[i]%>' checked/><label for='availableFalse<%=[i]%>'>No</label>
     <br/>
   <% } %>
 
   <% if (record[i].forSale === true) { %>
     For Sale:
-    <input type='radio' name='forSale' value='true' id='forSaleTrue' checked/><label for='forSaleTrue'>Yes</label>
-    <input type='radio' name='forSale' value='false' id='forSaleFalse'/><label for='forSaleFalse'>No</label>
+    <input type='radio' name='forSale' value='true' id='forSaleTrue<%=[i]%>' checked/><label for='forSaleTrue<%=[i]%>'>Yes</label>
+    <input type='radio' name='forSale' value='false' id='forSaleFalse<%=[i]%>'/><label for='forSaleFalse<%=[i]%>'>No</label>
     <br/>
   <% } else { %>
     For Sale:
-    <input type='radio' name='forSale' value='true' id='forSaleTrue' /><label for='forSaleTrue'>Yes</label>
-    <input type='radio' name='forSale' value='false' id='forSaleFalse' checked/><label for='forSaleFalse'>No</label>
+    <input type='radio' name='forSale' value='true' id='forSaleTrue<%=[i]%>' /><label for='forSaleTrue<%=[i]%>'>Yes</label>
+    <input type='radio' name='forSale' value='false' id='forSaleFalse<%=[i]%>' checked/><label for='forSaleFalse<%=[i]%>'>No</label>
     <br/>
   <% } %>
   <button type="sumbit" name="button">Submit Changes</button>
