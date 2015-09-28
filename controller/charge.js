@@ -30,7 +30,12 @@ app.post('/stripe', function(req, res, next) {
   });
   db.Record.findByIdAndUpdate(req.body.productID, req.body.available, function(err, record) {
     record.available = false;
+    record.owner = userID;
     record.save();
+  });
+  db.User.findById(req.session.id, function(err, user) {
+    user.records.push(req.body.productID);
+    user.save();
   });
   res.redirect('/records');
 });

@@ -69,7 +69,7 @@ app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
 });
 //small edit form
 app.put('/records', function(req, res) {
-  var test=(req.body.id)
+  var test = (req.body.id);
   db.Record.findByIdAndUpdate(test, req.body, function(err, data) {
     if (err) {
       console.log(err);

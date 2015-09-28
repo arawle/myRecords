@@ -61,7 +61,6 @@ $(document).ready(function() {
       },
     }).done(function(e) {
       alert('Availability Status Changed!');
-
     });
   });
   //removes the search by artist, genre, etc. field for easier searching
