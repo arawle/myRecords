@@ -39,7 +39,14 @@ $(document).ready(function() {
   });
 
   $('.delete').on('click', function(e) {
-    console.log('delete button')
-  })
+    console.log('clicked')
+    var idNum = $(this).data('id');
+    $.ajax({
+      url: '/records/' + idNum,
+      method: 'DELETE',
+    }).done(function(e) {
+      alert('Record deleted successfully!');
+    });
+  });
 
 });
