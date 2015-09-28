@@ -33,6 +33,21 @@ $(document).ready(function() {
       alert('Record of the Week Set Successfully!');
     });
   });
+  //
+  $('.availableEdit').on('click', function(e) {
+    var booleanToggle = $(this).data('boolean');
+    var recordId = $(this).data('recordid');
+    $.ajax({
+      url: '/records',
+      method: 'PUT',
+      data: {
+        available: booleanToggle,
+        id: recordId,
+      },
+    }).done(function(e) {
+      alert('Availability Status Changed!');
+    });
+  });
   //removes the search by artist, genre, etc. field for easier searching
   $('#search').on('click', function(e) {
     ($(this).attr('value', ''));

@@ -67,6 +67,20 @@ app.put('/records/:id', routeMiddleware.ensureCorrectUser, function(req, res) {
     }
   });
 });
+//small edit form
+app.put('/records', function(req, res) {
+  console.log('data', req.body)
+  var test=(req.body.id)
+  console.log(test)
+  db.Record.findByIdAndUpdate(test, req.body, function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      data.save();
+      res.send('success');
+    }
+  });
+});
 //delete record
 app.delete('/records/:id', routeMiddleware.ensureLoggedIn, function(req, res) {
   db.Record.findByIdAndRemove(req.params.id, function(err, data) {

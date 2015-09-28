@@ -1,26 +1,13 @@
-<form class="" action="/records/<%=record[i]._id%>?_method=put" method="post">
- <% if (record[i].available  === true) { %>
-    Available:
-    <input type='radio' name='available' value='true' id='availableTrue<%=[i]%>' checked /><label for='availableTrue<%=[i]%>'>Yes</label>
-    <input type='radio' name='available' value='false' id='availableFalse<%=[i]%>'/><label for='availableFalse<%=[i]%>'>No</label>
-    <br/>
-  <% } else { %>
-    Available:
-    <input type='radio' name='available' value='true' id='availableTrue<%=[i]%>' /><label for='availableTrue<%=[i]%>'>Yes</label>
-    <input type='radio' name='available' value='false' id='availableFalse<%=[i]%>' checked/><label for='availableFalse<%=[i]%>'>No</label>
-    <br/>
-  <% } %>
-
-  <% if (record[i].forSale === true) { %>
-    For Sale:
-    <input type='radio' name='forSale' value='true' id='forSaleTrue<%=[i]%>' checked/><label for='forSaleTrue<%=[i]%>'>Yes</label>
-    <input type='radio' name='forSale' value='false' id='forSaleFalse<%=[i]%>'/><label for='forSaleFalse<%=[i]%>'>No</label>
-    <br/>
-  <% } else { %>
-    For Sale:
-    <input type='radio' name='forSale' value='true' id='forSaleTrue<%=[i]%>' /><label for='forSaleTrue<%=[i]%>'>Yes</label>
-    <input type='radio' name='forSale' value='false' id='forSaleFalse<%=[i]%>' checked/><label for='forSaleFalse<%=[i]%>'>No</label>
-    <br/>
-  <% } %>
-  <button type="sumbit" name="button">Submit Changes</button>
-</form>
+<br/>
+<%=console.log(record[i]._id)%>
+<% if (record[i].available  === true) { %>
+  <button class='availableEdit' data-Boolean='false' data-recordId='<%=record[i]._id%>'>Make Unavailable</button>
+<% } else { %>
+  <button class='availableEdit' data-Boolean='true' data-recordId='<%=record[i]._id%>'>Make Available</button>
+<% } %>
+<br/>
+<% if (record[i].forSale === true) { %>
+  <button class='forSaleEdit' data-Boolean='false'>Mark Unavailable for Sale</button>
+<% } else { %>
+  <button class='forSaleEdit' data-Boolean='true'>Mark For Sale</button>
+<% } %>

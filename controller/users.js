@@ -31,7 +31,7 @@ app.get('/admins', function(req, res) {
     }
   });
 });
-
+//updates record of month or record of week
 app.put('/users', function(req, res) {
   db.User.findByIdAndUpdate(req.session.id, req.body, function(err, user) {
     if (err) {
