@@ -205,5 +205,5 @@
 </form>
 <br/>
 <br/>
-<%= console.log(record._id) %>
-<button class='delete' data-id='<%=record._id%>'>Delete Record</button>
+<%= console.log(record.owner) %>
+<button class='delete' data-id='<%=record._id%>' data-owner='<%=record.owner%>'>Delete Record</button>
