@@ -32,4 +32,9 @@ $(document).ready(function() {
       alert('Record of the Week Set Successfully!');
     });
   });
+
+  $('#search').on('click', function(e) {
+    ($(this).attr('value', ''));
+  });
+
 });
