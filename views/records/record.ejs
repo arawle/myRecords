@@ -4,13 +4,13 @@
   <img src='<%=record.photo%>' alt='Photo of Record' width='250px'/>
 
   <% if(record.owner == locals.user._id) { %>
-      <% include ../partials/recordFormEdit %>
-      <button class='delete' data-id='<%=record._id%>' data-redirect='/users/<%=record.owner%>'>Delete Record</button>
+    <% include ../partials/recordFormEdit %>
+    <button class='delete' data-id='<%=record._id%>' data-redirect='/users/<%=record.owner%>'>Delete Record</button>
   <% } else if (locals.user._id == locals.superUser._id) { %>
-      <% include ../partials/recordFormEdit %>
-      <button class='delete' data-id='<%=record._id%>' data-redirect='/records'>Delete Record</button>
+    <% include ../partials/recordFormEdit %>
+    <button class='delete' data-id='<%=record._id%>' data-redirect='/records'>Delete Record</button>
   <% } else { %>
-      <% include ../partials/recordFormView %>
+    <% include ../partials/recordFormView %>
   <% } %>
 
 <% include ../partials/footer %>
