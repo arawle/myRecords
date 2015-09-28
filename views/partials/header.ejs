@@ -16,6 +16,7 @@
       <div class="container">
         <div class="row teal lighten-2">
           <h3 class='col l6' id='recordsTitle'>Records</h3>
+            <% if (locals.user) { %>
               <nav>
                 <div class="nav-wrapper col l6">
                   <form class='search' action='/search' type='GET'>
@@ -27,6 +28,7 @@
                   </form>
                 </div>
               </nav>
+              <% } %>
             <% if (locals.user !== null) { %>
               <nav class='col l12 teal darken-2'>
               <a class='col l3' href="/records">Home</a>
