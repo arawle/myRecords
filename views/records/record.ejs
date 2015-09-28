@@ -3,8 +3,9 @@
 <h2>Record Information</h2>
   <img src='<%=record.photo%>' alt='Photo of Record' width='250px'/>
 
-  <% if(record.owner == locals.user._id || locals.superUser) { %>
+  <% if(record.owner == locals.user._id) { %>
       <% include ../partials/recordFormEdit %>
+      <button class='delete' data-id='<%=record._id%>' data-owner='<%=record.owner%>'>Delete Record</button>
   <% } else { %>
       <% include ../partials/recordFormView %>
   <% } %>
