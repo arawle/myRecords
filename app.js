@@ -30,6 +30,4 @@ app.use(loginMiddleware);
 require('./controller');
 
 // where to see my library
-app.listen(3000, function () {
-  console.log("Go to localhost:3000/");
-});
+app.listen(process.env.PORT || 3000);
