@@ -1,5 +1,4 @@
 <br/>
-<%=console.log(record[i]._id)%>
 <% if (record[i].available  === true) { %>
   <button class='availableEdit' data-Boolean='false' data-recordId='<%=record[i]._id%>'>Make Unavailable</button>
 <% } else { %>
@@ -7,7 +6,7 @@
 <% } %>
 <br/>
 <% if (record[i].forSale === true) { %>
-  <button class='forSaleEdit' data-Boolean='false'>Mark Unavailable for Sale</button>
+  <button class='forSaleEdit' data-Boolean='false' data-recordId='<%=record[i]._id%>'>Mark Unavailable for Sale</button>
 <% } else { %>
-  <button class='forSaleEdit' data-Boolean='true'>Mark For Sale</button>
+  <button class='forSaleEdit' data-Boolean='true' data-recordId='<%=record[i]._id%>'>Mark For Sale</button>
 <% } %>

@@ -33,7 +33,7 @@ $(document).ready(function() {
       alert('Record of the Week Set Successfully!');
     });
   });
-  //
+  // edits availability on homepage
   $('.availableEdit').on('click', function(e) {
     var booleanToggle = $(this).data('boolean');
     var recordId = $(this).data('recordid');
@@ -46,6 +46,22 @@ $(document).ready(function() {
       },
     }).done(function(e) {
       alert('Availability Status Changed!');
+    });
+  });
+  //edits sale availability on homepage
+  $('.forSaleEdit').on('click', function(e) {
+    var booleanToggle = $(this).data('boolean');
+    var recordId = $(this).data('recordid');
+    $.ajax({
+      url: '/records',
+      method: 'PUT',
+      data: {
+        forSale: booleanToggle,
+        id: recordId,
+      },
+    }).done(function(e) {
+      alert('Availability Status Changed!');
+
     });
   });
   //removes the search by artist, genre, etc. field for easier searching
