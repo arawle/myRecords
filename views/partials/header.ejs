@@ -20,7 +20,7 @@
                 <div class="nav-wrapper col l6">
                   <form class='search' action='/search' type='GET'>
                     <div class="input-field">
-                      <input id="search" type="search" name='search' value='Search by Genre, Artist, or Track' required>
+                      <input id="search" type="search" name='search' value='Search by Genre, Artist, or Track' data-id='<%=locals.user._id%>' required>
                       <label for="search"><i class="material-icons">search</i></label>
                       <i class="material-icons">close</i>
                     </div>
