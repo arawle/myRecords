@@ -2,7 +2,7 @@ $(document).ready(function() {
   //goes to the more info- edit page for records
   $('.details').on('click', function(e) {
     var thisId = $(this).data('id');
-    var url = 'http://localhost:3000/records/' + thisId;
+    var url = 'https://my-records.herokuapp.com/records/' + thisId;
     window.location.href = url;
   });
   //set record of month button
@@ -76,7 +76,7 @@ $(document).ready(function() {
       method: 'DELETE',
     }).done(function(e) {
       alert('Record deleted successfully!');
-      window.location.href = userRedirect;
+      window.location.href = 'https://my-records.herokuapp.com/' + userRedirect;
     });
   });
 
