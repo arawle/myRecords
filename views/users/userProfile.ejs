@@ -4,23 +4,23 @@
 
 Your Records: <br/>
   <% for (var i = 0; i < user.records.length; i++) { %>
-        <div class="col s5 m5">
-          <div class="card small">
-            <div class="card-image">
-              <img src="<%= user.records[i].photo %>" alt='Photo of Album Cover' />
-              <span class="card-title"><%= user.records[i].tracks %></span>
-            </div>
-            <div class="card-content">
-              <p><%=user.records[i].tracks%></p>
-            </div>
-            <div class="card-action">
-             <button class='details' data-id="<%=user.records[i]._id%>">More Info</button>
-              <% if(user.records[i].owner == locals.user._id && user.admin == true) { %>
-                <button class='setRecordWeek' data-url='/users' data-record='<%=user.records[i]._id%>'>Set Record of Week</button>
-                <button class='setRecordMonth' data-url='/users' data-record='<%=user.records[i]._id%>'>Set Record of Month</button>
-              <% } %>
-            </div>
-          </div>
+    <div class="col s5 m5">
+      <div class="card small">
+        <div class="card-image">
+          <img src="<%= user.records[i].photo %>" alt='Photo of Album Cover' />
+          <span class="card-title"><%= user.records[i].tracks %></span>
         </div>
+        <div class="card-content">
+          <p><%=user.records[i].tracks%></p>
+        </div>
+        <div class="card-action">
+         <button class='details' data-id="<%=user.records[i]._id%>">More Info</button>
+          <% if(user.records[i].owner == locals.user._id && user.admin == true) { %>
+            <button class='setRecordWeek' data-url='/users' data-record='<%=user.records[i]._id%>'>Set Record of Week</button>
+            <button class='setRecordMonth' data-url='/users' data-record='<%=user.records[i]._id%>'>Set Record of Month</button>
+          <% } %>
+        </div>
+      </div>
+    </div>
   <% } %>
 <% include ../partials/footer %>

@@ -12,39 +12,38 @@
     <span class="card-title grey-text text-darken-4">Record of the Week<i class="material-icons right">close</i></span>
     <p>
      <br/>
-      <br/>
-      Tracks: <%= locals.superUser.recordOfWeek[0].tracks %>
-      <br/>
-      Artist/Band: <%= locals.superUser.recordOfWeek[0].leadArtists %>
-      <br/>
-      Genre: <%= locals.superUser.recordOfWeek[0].genre %>
-      <br/>
-      Price: $<%= locals.superUser.recordOfWeek[0].lastPrice%>
-      <br/>
-      <br/>
-      <p><a href="/records/<%=locals.superUser.recordOfWeek[0]._id%>">More Information</a></p>
-      <br/>
-      <br/>
-      <% if (locals.superUser.recordOfWeek[0].available === true && locals.superUser.recordOfWeek[0].forSale === true && locals.superUser.recordOfWeek[0].lastPrice !== null && locals.superUser.recordOfWeek[0].lastPrice !== undefined) { %>
-        <form action="/stripe" method="POST">
-          <script
-            src="https://checkout.stripe.com/checkout.js"
-            class="stripe-button"
-            data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
-            data-amount= '<%=locals.superUser.recordOfWeek[0].lastPrice
-            *100%>'
-            data-name='Records'
-            data-description='<%=locals.superUser.recordOfWeek[0].tracks%>'
-            data-image="/128x128.png"
-            data-locale="auto"
-            data-shipping-address= 'true'>
-          </script>
-          <input style="display:none" name="productAmount" value="<%=locals.superUser.recordOfWeek[0].lastPrice%>">
-            <input style="display:none" name="productName" value="<%=locals.superUser.recordOfWeek[0].tracks%>">
-            <input style="display:none" name="productID" value="<%=locals.superUser.recordOfWeek[0]._id%>">
-        </form>
-
-       <% } %>
+    <br/>
+    Tracks: <%= locals.superUser.recordOfWeek[0].tracks %>
+    <br/>
+    Artist/Band: <%= locals.superUser.recordOfWeek[0].leadArtists %>
+    <br/>
+    Genre: <%= locals.superUser.recordOfWeek[0].genre %>
+    <br/>
+    Price: $<%= locals.superUser.recordOfWeek[0].lastPrice%>
+    <br/>
+    <br/>
+    <p><a href="/records/<%=locals.superUser.recordOfWeek[0]._id%>">More Information</a></p>
+    <br/>
+    <br/>
+    <% if (locals.superUser.recordOfWeek[0].available === true && locals.superUser.recordOfWeek[0].forSale === true && locals.superUser.recordOfWeek[0].lastPrice !== null && locals.superUser.recordOfWeek[0].lastPrice !== undefined) { %>
+      <form action="/stripe" method="POST">
+        <script
+          src="https://checkout.stripe.com/checkout.js"
+          class="stripe-button"
+          data-key="pk_test_H5mtBuGe7pXXLP5sqOdEoJIc"
+          data-amount= '<%=locals.superUser.recordOfWeek[0].lastPrice
+          *100%>'
+          data-name='Records'
+          data-description='<%=locals.superUser.recordOfWeek[0].tracks%>'
+          data-image="/128x128.png"
+          data-locale="auto"
+          data-shipping-address= 'true'>
+        </script>
+        <input style="display:none" name="productAmount" value="<%=locals.superUser.recordOfWeek[0].lastPrice%>">
+        <input style="display:none" name="productName" value="<%=locals.superUser.recordOfWeek[0].tracks%>">
+        <input style="display:none" name="productID" value="<%=locals.superUser.recordOfWeek[0]._id%>">
+      </form>
+     <% } %>
     </p>
   </div>
 </div>
@@ -93,7 +92,6 @@
             <input style="display:none" name="productName" value="<%=locals.superUser.recordOfMonth[0].tracks%>">
             <input style="display:none" name="productID" value="<%=locals.superUser.recordOfMonth[0]._id%>">
         </form>
-
        <% } %>
     </p>
   </div>

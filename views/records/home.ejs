@@ -27,14 +27,13 @@
         data-shipping-address= 'true'>
       </script>
       <input style="display:none" name="productAmount" value="<%=record[i].lastPrice%>">
-        <input style="display:none" name="productName" value="<%=record[i].tracks%>">
-        <input style="display:none" name="productID" value="<%=record[i]._id%>">
+      <input style="display:none" name="productName" value="<%=record[i].tracks%>">
+      <input style="display:none" name="productID" value="<%=record[i]._id%>">
     </form>
-
   <% } %>
   <br/>
   <br/>
-    <div>
+  <div>
     <% if(record[i].owner == locals.user._id) { %>
       Admin Functions:
       <br/>
@@ -42,9 +41,8 @@
       <button class='details' data-id='<%=record[i]._id%>'>Edit</button>
       <% include ../partials/availableAndSaleForm %>
     <% } %>
-    </div>
+  </div>
   </div>
 <% } %>
-
 
 <% include ../partials/footer %>
