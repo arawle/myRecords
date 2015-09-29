@@ -1,4 +1,4 @@
-<% if (locals.superUser && locals.recordOfWeek.length) { %>
+<% if (locals.superUser && locals.recordOfWeek && locals.recordOfWeek.length) { %>
 <div class="card featured hoverable">
   <div class="card-image waves-effect waves-block waves-light">
     <img class="activator" src='<%=locals.superUser.recordOfWeek[0].photo%>' alt='record of week'>
