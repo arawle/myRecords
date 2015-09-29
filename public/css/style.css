@@ -1,11 +1,8 @@
 nav {
   text-align: center;
 }
-section {
-  clear: left;
-}
 .allRecords {
-  height: 250px;
+  height: 300px;
   width: 250px;
   overflow: auto;
 }
